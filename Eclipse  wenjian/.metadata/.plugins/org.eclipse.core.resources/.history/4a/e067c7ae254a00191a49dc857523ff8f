@@ -1,0 +1,20 @@
+package shuzu;
+
+import java.util.ArrayList;
+
+public class Class {
+	private ArrayList<User>user;
+	public void addUser(User s) {
+		if(user==null) {
+		user.add(s);
+		}else
+			System.out.println("创建失败");
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 Class s = new Class();
+		 User g1 = new User();
+		 g1.setName("张三");
+	}
+
+}

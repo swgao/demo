@@ -1,0 +1,50 @@
+package 机测题;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class P15 extends JFrame  implements ActionListener{
+	Font f = new Font("楷体",Font.BOLD,40);
+	JButton jb = new JButton("asd");
+	JLabel j  = new JLabel("九九乘法表");
+	public P15() {
+		setTitle("九九乘法表");
+		getContentPane().setLayout(new FlowLayout());
+		j.setForeground(Color.BLUE);
+		j.setFont(f);
+		getContentPane().add(j);
+		getContentPane().add(jb);
+		jb.addActionListener(this);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==jb) {
+			for (int i = 1; i < 10; i++) {
+			      for (int j =1; j <=i; j++) {
+			      if(j!=i){
+			             System.out.print(j+"*"+i+"="+(j*i)+"\t");
+			      }else{
+			             System.out.println(j+"*"+i+"="+(j*i));
+			      }
+			      }
+			}
+	}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		P15 f = new P15();
+		f.setVisible(true);
+		f.setSize(300,300);
+	}
+	
+
+}

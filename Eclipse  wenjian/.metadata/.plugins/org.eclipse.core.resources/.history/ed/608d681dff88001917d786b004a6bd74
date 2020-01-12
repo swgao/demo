@@ -1,0 +1,144 @@
+package Java;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserBao {
+	//通过用户名和密码获取一个对像
+	public static User getUser(String name,String pass) {
+		User user = null;
+		if(name!=null||pass!=null) {
+			String sql = "select * from user where name="+""+name+"and pass="+""+pass+"";
+			//执行查询语句，并返回结果集
+			ResultSet rs = BaseDao.executeQuery(sql);
+			try {
+				if(rs.next()) {
+					//创建用户对象，并保存用户信息，需要处理的字符编码
+					user = new User();
+					user.setId(rs.getInt("id"));
+					user.setName(rs.getString("name"));
+					user.setPass(rs.getString("pass"));
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
+	//通过编号，获取一个对象
+	public static User getUser(int id) {
+		User user = null;
+		if(id>0) {
+			String sql = "select * from user where id="+id;
+			//执行查询语句，并返回结果集
+			ResultSet rs = BaseDao.executeQuery(sql);
+			try {
+				if(rs.next()) { //下移结果集指针，判断记录是否存在？
+					user = new User();//创建用户，并保存用户信息
+					user.setId(rs.getInt("id"));
+					user.setName(ChangeString.ISOToGBK(rs.getString("name")));
+					user.setPass(ChangeString.ISOToGBK(rs.getString("pass")));
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
+	//通过用户名，获取一个对象
+		public static User getUser(String name) {
+			User user = null;
+			if(name!=null) {
+				String sql = "select * from user where name="+name+"";
+				//执行查询语句，并返回结果集
+				ResultSet rs = BaseDao.executeQuery(sql);
+				try {
+					if(rs.next()) {
+						//创建用户对象，并保存用户信息，需要处理的字符编码
+						user = new User();
+						user.setId(rs.getInt("id"));
+						user.setName(ChangeString.ISOToGBK(rs.getString("name")));
+						user.setPass(ChangeString.ISOToGBK(rs.getString("pass")));
+					}
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return user;
+		}
+		//通过编号，获取一个对象
+		public static List<User> selectUserList() {
+			User user = null;
+			List<User> list = new ArrayList<User>();
+				String sql = "select * from user";
+				//执行查询语句，并返回结果集
+				ResultSet rs = BaseDao.executeQuery(sql);
+				try {
+					while(rs.next()) {
+						//创建用户对象，并保存用户信息，需要处理的字符编码
+						user = new User();
+						user.setId(rs.getInt("id"));
+						user.setName(ChangeString.ISOToGBK(rs.getString("name")));
+						user.setPass(ChangeString.ISOToGBK(rs.getString("pass")));
+						list.add(user);
+					}
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			return list;
+		}
+		//添加新用户
+		public static int insertUser(User user) {
+			if(user!=null) {
+				//获取用户信息
+				int id = user.getId();
+				String name = user.getName();
+				String pass = user.getPass();
+				String sql="insert into user values("+id+","+name+","+pass+","+")";
+				return BaseDao.executeUpdate(sql);
+			}
+			else {
+				return -1;
+			}
+		}
+		//修改用户信息
+		public static int updateUser(User user) {
+			if(user!=null) {
+				//获取用户信息
+				int id = user.getId();
+				String name = user.getName();
+				String pass = user.getPass();
+				String sql = "update user set name="+name+",pass="+pass+" where id="+id;
+				return BaseDao.executeUpdate(sql);
+			}
+			else {
+				return -1;
+			}
+		}
+		//修改用户密码
+		public static int updatePass(String name,String pass) {
+			if(name!=null&&pass!=null) {
+				String sql="update user set pass="+pass+" where name="+name+"";
+				return BaseDao.executeUpdate(sql);
+			}
+			else {
+				return -1;
+			}
+		}
+		//删除指定id的用户
+		public static int deleteUser(int id) {
+			String sql="delete from user where id="+id;
+			return BaseDao.executeUpdate(sql);
+		}
+		//清空全部用户
+		public static void emptyUser() {
+			String sql = "delete from user";
+			BaseDao.executeQuery(sql);
+		}
+}

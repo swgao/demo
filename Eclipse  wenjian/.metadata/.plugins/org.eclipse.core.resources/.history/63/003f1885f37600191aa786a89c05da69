@@ -1,0 +1,74 @@
+package 机测题;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class P2 extends JFrame implements ActionListener {
+	 JLabel jl = new JLabel("体重");
+	 JLabel jl1 = new JLabel("身高");
+	 JLabel jl2 = new JLabel("你的性别");
+	JTextField jt = new JTextField(10);
+	JTextField jt1 = new JTextField(10);
+	JTextField jt2 = new JTextField(10);
+	JTextField jt3 = new JTextField(10);
+	JButton jb = new JButton("查看你的等级");
+	
+	public P2() {
+		getContentPane().setLayout(new FlowLayout());
+		getContentPane().add(jl);
+		getContentPane().add(jt);
+		getContentPane().add(jl1);
+		getContentPane().add(jt1);
+		getContentPane().add(jl2);
+		getContentPane().add(jt3);
+		
+		getContentPane().add(jb);
+		getContentPane().add(jt2);
+		jb.addActionListener(this);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		int a,b,c,d;
+		a=Integer.parseInt(jt.getText());
+		b=Integer.parseInt(jt1.getText());
+		d = Integer.parseInt(jt3.getText());
+		if(e.getSource()==jb) {
+			c = a/(b*b);
+			if(d==1) {
+				if(c<=20) {
+					jt2.setText("太瘦");}
+				else if(c<25) {
+					jt2.setText("适中");}
+				else if(c<30) {
+					jt2.setText("偏胖");}
+				else {
+					jt2.setText("肥胖");}
+				
+			}else {
+				if(c<=19) 
+					jt2.setText("太瘦");
+				else if(c<25) 
+					jt2.setText("适中");
+				else if(c<30) 
+					jt2.setText("偏胖");
+				else 
+					jt2.setText("肥胖");
+			}
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		P2 f = new P2();
+		f.setVisible(true);
+		f.setSize(100,300);
+	}
+
+}

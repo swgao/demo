@@ -1,0 +1,14 @@
+package shuzu;
+
+public class Test {
+	static int f(int i){                                     //Çó½×³Ë
+		if(i==1)
+			return 1;
+		return i*f(i-1);
+	}
+	public static void main(String[] args) {
+		System.out.println(f(3));
+
+	}
+
+}

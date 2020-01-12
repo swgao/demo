@@ -1,0 +1,7 @@
+Manifest-Version 1.0
+
+Main-Class com.boss.pwdSer.Start
+
+Class-Path . libcommons-lang3-3.4.jar libcore-3.2.1.jar libjavase-2.2.jar libmail-1.4.1.jar libmysql-connector-java-5.1.6.jar
+
+Created-By ZhangJiaBin

@@ -1,0 +1,18 @@
+package Java;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+import org.w3c.dom.UserDataHandler;
+
+public class UserUpkeep extends JFrame {
+	private JTextField tf_id;
+	private JTextField tf_name;
+	private JTextField tf_pass;
+	private List<User> list = Use
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

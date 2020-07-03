@@ -1,0 +1,80 @@
+package 机测题;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class P15 extends JFrame  implements ActionListener{
+	Font f = new Font("楷体",Font.BOLD,40);
+	JButton jb = new JButton("asd");
+	JLabel j  = new JLabel("九九乘法表");
+	String a[] = new String[1];
+	String a1[] = new String[4];
+	Button jb1[] = new Button[1];
+	Button jb2[] = new Button[4];
+	JPanel jp = new JPanel();
+	JPanel jp1 = new JPanel();
+	JPanel jp2 = new JPanel();
+	JPanel jp3 = new JPanel();
+	JPanel jp4 = new JPanel();
+	JPanel jp5 = new JPanel();
+	JPanel jp6 = new JPanel();
+	JPanel jp7 = new JPanel();
+	JPanel jp8= new JPanel();
+	public P15() {
+		setTitle("九九乘法表");
+		getContentPane().setLayout(new FlowLayout());
+		j.setForeground(Color.BLUE);
+		j.setFont(f);
+		getContentPane().add(j);
+		getContentPane().add(jb);
+		jb.addActionListener(this);
+		jp.setLayout(new GridLayout(1,1));
+		for (int i = 1; i < 2; i++) {
+	      for (int j =1; j <=i; j++) {
+	    	  a[i] = (i+"*"+j+"="+i*j);
+	    	}
+	      }
+		for(int i = 1;i<a.length+1;i++) {
+				jb1[i] = new Button(a[i]);
+				jp.add(jb1[i]);
+			}//把数加到按钮里
+		getContentPane().add(jp);
+		jp1.setLayout(new GridLayout(1,4));
+		for (int i = 1; i < 3; i++) {
+	      for (int j =1; j <=i; j++) {
+	    	  a1[i] = (i+"*"+j+"="+i*j+"\n");
+	    	}
+	      }
+		for(int i = 1;i<a1.length;i++) {
+				jb2[i] = new Button(a1[i]);
+				jp1.add(jb2[i]);
+			}//把数加到按钮里
+		getContentPane().add(jp1,BorderLayout.WEST);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		P15 f = new P15();
+		f.setVisible(true);
+		f.setSize(820,510);
+	}
+	
+
+}

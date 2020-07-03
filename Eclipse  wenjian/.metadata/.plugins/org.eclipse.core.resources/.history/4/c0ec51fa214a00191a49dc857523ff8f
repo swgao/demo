@@ -1,0 +1,5 @@
+package shuzu;
+
+public class List<T> {
+	List<String> i = new List<String>(arr);
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;SS.窗口化3.java&apos; to &apos;CC.java&apos;&#x0D;&#x0A;- Original project: &apos;窗口化&apos;&#x0D;&#x0A;- Original element: &apos;SS.窗口化3.java&apos;&#x0D;&#x0A;- Renamed element: &apos;SS.CC.java&apos;" description="Rename compilation unit &apos;窗口化3.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;SS{窗口化3.java" name="CC.java" references="false" stamp="1553083404244" version="1.0"/>
+</session>

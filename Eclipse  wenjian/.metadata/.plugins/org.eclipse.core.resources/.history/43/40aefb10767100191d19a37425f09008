@@ -1,0 +1,43 @@
+package »ú²âÌâ;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class P4 extends JFrame implements ActionListener {
+	JTextField tf = new JTextField(10);
+	JTextField tf1 = new JTextField(10);
+	JButton jb = new JButton("×ª»»");
+	public P4() {
+		// TODO Auto-generated constructor stub
+		getContentPane().setLayout(new FlowLayout());
+		getContentPane().add(tf);
+		getContentPane().add(jb);
+		getContentPane().add(tf1);
+		jb.addActionListener(this);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==jb) {
+			int a;
+			int b,c,d;
+			a = Integer.parseInt(tf.getText());
+			b=a/3600;
+			c=(a%3600)/60;
+			d=(a%3600)%60;
+			tf1.setText("as"+a);}
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		P4 f = new P4();
+		f.setVisible(true);
+		f.setSize(300,200);
+	}
+
+}

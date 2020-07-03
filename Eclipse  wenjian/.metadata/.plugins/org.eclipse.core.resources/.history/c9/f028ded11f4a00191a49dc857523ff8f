@@ -1,0 +1,21 @@
+package shuzu;
+
+import java.util.Iterator;
+import java.util.Vector;
+
+public class cc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Vector v = new Vector();
+		for(int i=0;i<5;i++) {
+			v.add(String.valueOf(i));
+		}
+		Iterator i =v.iterator();
+		while(i.hasNext()) {
+			String s = (String)i.next();
+			System.out.println(s);
+		}
+	}
+
+}

@@ -1,0 +1,39 @@
+package 机测题;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class P2 extends JFrame implements ActionListener {
+	 JLabel jl = new JLabel("体重");
+	 JLabel jl1 = new JLabel("身高");
+	JTextField jt = new JTextField(10);
+	JTextField jt1 = new JTextField(10);
+	JButton jb = new JButton("查看你的等级");
+	public P2() {
+		getContentPane().setLayout(new FlowLayout());
+		getContentPane().add(jl);
+		getContentPane().add(jt);
+		getContentPane().add(jl1);
+		getContentPane().add(jt1);
+		getContentPane().add(jb);
+	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		P2 f = new P2();
+		f.setVisible(true);
+		f.setSize(100,300);
+	}
+
+}

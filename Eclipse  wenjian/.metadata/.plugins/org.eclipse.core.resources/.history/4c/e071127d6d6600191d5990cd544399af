@@ -1,0 +1,103 @@
+package SS;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.concurrent.BrokenBarrierException;
+
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Zhu extends JFrame implements ActionListener {
+	
+	JButton b = new JButton("注册");
+	JButton b1 = new JButton("重置");
+	JLabel j = new JLabel("姓名");
+	JLabel j1 = new JLabel("年龄");
+	JLabel j2 = new JLabel("账号");
+	JLabel j3 = new JLabel("密码");
+	JPanel p = new JPanel();
+	JPanel p1 = new JPanel();
+	JPanel p2 = new JPanel();
+	JPanel p3 = new JPanel();
+	JPanel p4 = new JPanel();
+	JPanel p5 = new JPanel();
+	JPanel p6 = new JPanel();
+	JLabel l = new JLabel(new ImageIcon("images/52222.jpg"));
+	JLabel bie = new JLabel("性别");
+	ButtonGroup grop = new ButtonGroup();
+	JRadioButton jb = new JRadioButton("男",false);
+	JRadioButton jb1 = new JRadioButton("女",true);
+	JTextField t = new JTextField(10);
+	JTextField t1 = new JTextField(10);
+	JTextField t2= new JTextField(10);
+	JTextField t3 = new JTextField(10);
+	JTextField t4 = new JTextField(10);
+	public Zhu() {
+		Container c = this.getContentPane();
+		c.setLayout(new FlowLayout());
+		p5.add(l);
+		p.add(j);
+		p.add(t);
+		p1.add(j1);
+		p1.add(t1);
+		p2.add(j2);
+		p2.add(t2);
+		p3.add(j3);
+		p3.add(t3);
+		p4.add(b);
+		p4.add(b1);
+		p6.add(bie);
+		p6.add(jb);
+		p6.add(jb1);
+		grop.add(jb);
+		grop.add(jb1);
+		c.add(p5);
+		c.add(p);
+		c.add(p1);
+		c.add(p2);
+		c.add(p3);
+		c.add(p6);
+		c.add(p4);
+		b.addActionListener(this);
+		b1.addActionListener(this);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String mess = null;
+		if(e.getSource()==b) {
+			JOptionPane.showMessageDialog(this, "确定注册","注册",JOptionPane.INFORMATION_MESSAGE);
+			mess+= "姓名"+t.getText()+"年龄:"+t1.getText()+"账号："+t2.getText()+"密码为："+t3.getText();
+			if(jb.isSelected())
+				mess+="性别"+jb.getText();
+			else
+				mess+="性别"+jb1.getText();
+		}
+		if(e.getSource()==b1)
+			JOptionPane.showMessageDialog(this, "是否取消注册","注册",JOptionPane.WARNING_MESSAGE);
+			t.setText("");
+			t1.setText("");
+			t2.setText("");
+			t3.setText("");
+			
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Zhu f = new Zhu();
+		f.setVisible(true);
+		f.setSize(250,600);
+		f.setLocation(800, 200);
+	}
+
+}

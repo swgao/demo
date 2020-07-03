@@ -1,0 +1,30 @@
+package Java;
+
+public class ChangeString {
+	/*静态成员方法，用于将字符集为“ISO8859_1”的字符串，转换为字符集为“GBK”的字符串
+	 * 转出：数据表（ISO8859_1或Lation ）    ---到 程序（GBK）*/
+	public static String ISOToGBK(String str) {
+		if(str!=null) {
+			try {
+				str = new String(str.getBytes("Lation"),"GBK");
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return str;
+	}
+	/*静态成员方法，用于将字符集为“GBK”的字符串，转换为字符集为“ISO8859_1”的字符串
+	 * 转出：数据表（ GBK）    ---到 程序（ISO8859_1或Lation）*/
+	public static String GBKToISO(String str) {
+		if(str!=null) {
+			try {
+				str = new String(str.getBytes("GBK"),"Lation");
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return str;
+	}
+}

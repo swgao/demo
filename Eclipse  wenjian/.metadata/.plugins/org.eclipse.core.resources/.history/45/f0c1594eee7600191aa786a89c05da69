@@ -1,0 +1,23 @@
+package »ú²âÌâ;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+public class P2 extends JFrame implements ActionListener {
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		P2 f = new P2();
+		f.setVisible(true);
+		f.setSize(300,300);
+	}
+
+}
